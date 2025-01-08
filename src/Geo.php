@@ -217,9 +217,9 @@ class Geo
      * @param string $ipAddress The IP address to geolocate.
      * @return array|null The geolocation data, or null if not determinable.
      */
-    private function getIpData(string $ipAddress = false): ?string
+    private function getIpData($ipAddress = false): 
     {
-        if (empty($ipAddress))
+        if (empty($ipAddress) || !$ipAddress)
             $ipAddress = $this->getUserIpAddress();
         $response = @file_get_contents($this->ipApiUrl . $ipAddress);
         if ($response) {
